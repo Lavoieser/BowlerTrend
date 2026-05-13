@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Team</title>
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+
+<body>
+     <!-- ============================= -->
+    <!-- CREATE TEAM SECTION           -->
+    <!-- ============================= -->
+    <h1>Create a Team</h1>
+
+    <div class="form-container">
+
+        <!-- Team Name -->
+        <label for="teamName">Team Name</label>
+        <input id="teamName" type="text" placeholder="Enter team name">
+
+        <!-- Members -->
+        <label for="membersSelect">Members (1 to 6 players)</label>
+        <select id="membersSelect" multiple size="6">
+            <!-- Players loaded dynamically -->
+        </select>
+
+        <!-- Captain -->
+        <label for="captainSelect">Captain (optional)</label>
+        <select id="captainSelect">
+            <option value="">No captain</option>
+            <!-- Options added dynamically based on selected members -->
+        </select>
+
+        <!-- Save button -->
+        <button id="createTeamBtn">Save Team</button>
+
+        <!-- Message box -->
+        <div id="teamMessage" class="message"></div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- Scripts                       -->
+    <!-- ============================= -->
+    <script src="js/App.js"></script>
+    <script src="js/CreateTeam.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teams</title>
+    <link rel="stylesheet" href="css/Style.css">
+    
+    <!-- Global API helpers and Session page logic -->
+    <script src="js/App.js"></script>
+    <script src="js/Teams.js"></script>
+    <script src="js/CreateTeam.js"></script>
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- Navigation bar (standard)     -->
+    <!-- ============================= -->
+    <div id="navContainer" class="main-menu">
+        <div class="menu-inner"></div>
+    </div>
+
+    <!-- ============================= -->
+    <!-- TOP SECTION — LIST OF TEAMS   -->
+    <!-- ============================= -->
+    <h1>Teams</h1>
+
+    <div id="teamsContainer">
+        <!-- Teams will be dynamically inserted here -->
+    </div>
+
+    <hr>
+
+    <!-- ============================= -->
+    <!-- BOTTOM SECTION — CREATE TEAM  -->
+    <!-- ============================= -->
+    <h2>Create a Team</h2>
+
+    <div class="form-container">
+
+        <!-- Team Name -->
+        <label for="teamName">Team Name</label>
+        <input id="teamName" type="text" placeholder="Enter team name">
+
+        <!-- Members -->
+        <label for="membersSelect">Members (1 to 6 players)</label>
+        <select id="membersSelect" multiple size="6">
+            <!-- Players loaded dynamically -->
+        </select>
+
+        <!-- Captain -->
+        <label for="captainSelect">Captain (optional)</label>
+        <select id="captainSelect">
+            <option value="">No captain</option>
+            <!-- Options added dynamically based on selected members -->
+        </select>
+
+        <!-- Save button -->
+        <button id="createTeamBtn">Save Team</button>
+
+        <!-- Message box -->
+        <div id="teamMessage" class="message"></div>
+    </div>
+</body>
+</html>

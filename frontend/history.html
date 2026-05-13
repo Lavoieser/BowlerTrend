@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game History</title>
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Shared navigation + session logic -->
+    <script src="js/app.js"></script>
+
+    <!-- History logic (filters, loading, editing) -->
+    <script src="js/History.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <header>
+        <div id="navContainer" class="main-menu">
+            <div class="menu-inner"></div>
+        </div>
+
+        <h1>Game History</h1>
+    </header>
+
+    <!-- Filters section -->
+    <section id="filters">
+
+        <h2>Filters</h2>
+
+        <!-- Date range -->
+        <div class="filter-group">
+            <label for="startDate">Start date:</label>
+            <input type="date" id="startDate">
+
+            <label for="endDate">End date:</label>
+            <input type="date" id="endDate">
+        </div>
+
+        <!-- Ball filter -->
+        <div class="filter-group">
+            <label for="ballFilter">Ball:</label>
+            <select id="ballFilter">
+                <option value="">All balls</option>
+            </select>
+        </div>
+
+        <!-- Location filter -->
+        <div class="filter-group">
+            <label for="locationFilter">Location:</label>
+            <select id="locationFilter">
+                <option value="">All locations</option>
+            </select>
+        </div>
+
+        <!-- Category filter -->
+        <div class="filter-group">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter">
+                <option value="">All categories</option>
+            </select>
+        </div>
+
+        <button id="applyFiltersBtn">Apply filters</button>
+        <button id="resetFiltersBtn">Reset</button>
+
+    </section>
+
+    <!-- History table -->
+    <section id="historyContainer">
+        <table id="historyTable" class="history-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Score</th>
+                    <th>Ball</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+        </table>
+    </section>
+
+    <!-- Edit modal -->
+    <div id="editModal" class="modal hidden">
+
+        <div class="modal-content">
+            <h2>Edit Game</h2>
+
+            <label for="editScore">Score:</label>
+            <input type="number" id="editScore" min="0" max="300">
+
+            <label for="editBall">Ball:</label>
+            <select id="editBall"></select>
+
+            <label for="editLocation">Location:</label>
+            <select id="editLocation"></select>
+
+            <label for="editCategory">Category:</label>
+            <select id="editCategory"></select>
+
+            <div class="modal-buttons">
+                <button id="saveEditBtn">Save</button>
+                <button id="cancelEditBtn">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

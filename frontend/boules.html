@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balls</title>
+    <link rel="stylesheet" href="css/style.css">    
+    <script src="js/app.js" defer></script>
+    <script src="js/boules.js" defer></script>
+
+</head>
+
+<body>
+
+    <div id="navContainer" class="main-menu">
+        <div class="menu-inner"></div>
+    </div>
+    
+    <h1>Balls</h1>
+
+    <!-- ========================= -->
+    <!-- SECTION 1 — PLAYER BALLS  -->
+    <!-- ========================= -->
+    <section id="my-balls-section">
+        <h2>My Balls</h2>
+        <div id="balls-list" class="list-container"></div>
+    </section>
+
+    <hr>
+
+    <!-- ========================= -->
+<!-- SECTION 2 — ADD A BALL    -->
+<!-- ========================= -->
+<section id="add-ball-section">
+
+    <h2>Add a Ball</h2>
+
+    <label for="ball-name">Ball name:</label>
+    <input type="text" id="ball-name" placeholder="Enter ball name">
+
+    <!-- ADMIN ONLY -->
+    <div id="player-admin" style="display:none;">
+        <label for="player-select">Assign to player:</label>
+        <select id="player-select"></select>
+    </div>
+
+    <!-- USER ONLY -->
+    <div id="player-user" style="display:none;">
+        <label>Player:</label>
+        <input type="text" id="player-name" readonly>
+    </div>
+
+    <!-- ADMIN ONLY -->
+    <button id="add-ball-btn" style="display:none;">Add</button>
+
+</section>
+
+
+    <hr>
+
+    <!-- ========================= -->
+    <!-- SECTION 3 — ARCHIVED BALLS (toggle) -->
+    <!-- ========================= -->
+    <button id="toggle-archived-btn">Show archived balls</button>
+
+    <div id="archived-balls-section" style="display: none; margin-top: 10px;">
+        <h3>Archived Balls</h3>
+        <div id="archived-balls-list" class="list-container"></div>
+    </div>
+</body>
+</html>

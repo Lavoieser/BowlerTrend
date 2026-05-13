@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Chart.js libraries -->
+    <script src="libs/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+    <!-- Stats logic (must load before app.js) -->
+    <script src="js/Stats.js" defer></script>
+
+    <!-- Shared navigation + session logic -->
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <div id="navContainer" class="main-menu">
+        <div class="menu-inner"></div>
+    </div>
+
+    <!-- Required container for Stats.js dynamic content -->
+    <div id="statsContainer"></div>
+
+    <!-- ZONE 1 : Player name -->
+    <div class="zone">
+        <h1>Statistics for <span id="playerName">...</span></h1>
+    </div>
+
+    <!-- ZONE 2 : Numeric results -->
+    <div class="zone">
+        <h2>Results</h2>
+
+        <div class="stats-grid">
+            <div class="stat-box">Moving Average: <span id="statMovingAvg">...</span></div>
+            <div class="stat-box">Median: <span id="statMedian">...</span></div>
+            <div class="stat-box">Standard Deviation: <span id="statStdDev">...</span></div>
+            <div class="stat-box">Best Score: <span id="statBest">...</span></div>
+            <div class="stat-box">Trend: <span id="statTrend">...</span></div>
+            <div class="stat-box">Games Count: <span id="statCount">...</span></div>
+        </div>
+    </div>
+
+    <!-- ZONE 3 : Charts -->
+    <div class="zone">
+        <h2>Chart: Progression</h2>
+        <canvas id="chartProgress"></canvas>
+
+        <h2>Chart: Score Distribution</h2>
+        <canvas id="chartHistogram"></canvas>
+    </div>
+
+    <!-- ZONE 4 : Parameters -->
+    <div class="zone">
+        <h2>Parameters</h2>
+
+        <div class="params-grid">
+            <div>
+                <label for="paramMB">MBgames (moving average)</label>
+                <input type="number" id="paramMB" value="10">
+            </div>
+
+            <div>
+                <label for="paramET">ETgames (std deviation)</label>
+                <input type="number" id="paramET" value="20">
+            </div>
+
+            <div>
+                <label for="paramStart">Start date</label>
+                <input type="date" id="paramStart">
+            </div>
+
+            <div>
+                <label for="paramEnd">End date</label>
+                <input type="date" id="paramEnd">
+            </div>
+        </div>
+
+        <button onclick="reloadStats()">Recalculate</button>
+    </div>
+
+</body>
+</html>

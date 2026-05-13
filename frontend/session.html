@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Session</title>
+
+    <!-- Global stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- App scripts -->
+    <script src="js/app.js" defer></script>
+    <script src="js/Sessions.js?v=20240402" defer></script>
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<div id="navContainer" class="main-menu">
+    <div class="menu-inner"></div>
+</div>
+
+<!-- Main session container -->
+<div class="session-container">
+
+    <h3 id="sessionTitle">New Bowling Session</h3>
+
+    <!-- Toggle button for mobile settings panel -->
+    <button id="toggleOptions">Session Settings</button>
+
+    <!-- Collapsible session configuration panel -->
+    <div id="optionsPanel" class="session-config">
+
+        <div class="form-group">
+            <label for="teamSelect">Team</label>
+            <select id="teamSelect">
+                <option value="">Select team</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="gameCount">Games</label>
+            <select id="gameCount">
+                <option value="1">1 game</option>
+                <option value="2">2 games</option>
+                <option value="3" selected>3 games</option>
+                <option value="4">4 games</option>
+                <option value="5">5 games</option>
+                <option value="6">6 games</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="locationSelect">Location</label>
+            <select id="locationSelect">
+                <option value="">Select location</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="categorySelect">Category</label>
+            <select id="categorySelect">
+                <option value="">Select category</option>
+                <option value="League">League</option>
+                <option value="Practice">Practice</option>
+                <option value="Friendly game">Friendly game</option>
+                <option value="Tournament">Tournament</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateInput">Date</label>
+            <input type="date" id="dateInput">
+        </div>
+
+        <!-- Player + Ball selection injected dynamically -->
+        <div id="playerBallSection"></div>
+
+        <button id="startSessionBtn" class="primary-btn">
+            Start Session
+        </button>
+
+    </div>
+
+    <hr>
+
+    <!-- Session score matrix (injected by Sessions.js) -->
+    <div id="sessionTableContainer"></div>
+
+</div>
+
+<!-- Toggle logic for the collapsible panel -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("toggleOptions");
+        const panel = document.getElementById("optionsPanel");
+
+        toggleBtn.addEventListener("click", () => {
+            panel.classList.toggle("hidden");
+        });
+    });
+</script>
+
+</body>
+</html>

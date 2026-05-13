@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Create Account</h1>
+
+    <div class="form-container">
+
+        <label for="nameInput">Player Name</label>
+        <input id="nameInput" type="text" placeholder="Player name">
+
+        <label for="emailInput">Email (optional)</label>
+        <input id="emailInput" type="email" placeholder="Email">
+
+        <label for="passwordInput">Password</label>
+        <input id="passwordInput" type="password" placeholder="Password">
+
+        <label for="confirmInput">Confirm Password</label>
+        <input id="confirmInput" type="password" placeholder="Confirm password">
+
+        <button id="registerBtn">Register</button>
+
+        <p>
+            Already have an account?
+            <a href="Login.html">Login here</a>
+        </p>
+
+        <div id="registerMessage" class="message"></div>
+    </div>
+
+    <script src="js/App.js"></script>
+    <script src="js/Register.js"></script>
+</body>
+</html>
