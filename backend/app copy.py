@@ -8,14 +8,6 @@ from functools import wraps
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-FRONTEND_FOLDER = os.path.join(BASE_DIR, '..', 'frontend')
-
-app = Flask(
-    __name__,
-    static_folder=FRONTEND_FOLDER,
-    static_url_path=''
-)
-
 # ======================================================
 # AUTHORIZATION DECORATOR
 # ======================================================
