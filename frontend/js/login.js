@@ -30,7 +30,7 @@ loginBtn.addEventListener("click", async () => {
         const res = await apiPost("/login", { name, password });
 
         if (res.success) {
-            window.location.href = "Index.html";
+            window.location.href = "index.html";
         } else {
             showMessage(res.error, "error");
         }
