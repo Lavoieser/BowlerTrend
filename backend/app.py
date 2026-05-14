@@ -74,7 +74,7 @@ DB_PATH = os.path.join(BASE_DIR, "bowler.db")
 
 @app.route('/')
 def serve_index():
-    return send_from_directory('../frontend', 'Index.html')
+    return send_from_directory('../frontend', 'index.html')
 
 def get_db():
     db = sqlite3.connect(DB_PATH)
@@ -121,7 +121,7 @@ def login():
 @app.get("/logout")
 def logout():
     session.clear()
-    return send_from_directory('../frontend', 'Login.html')
+    return send_from_directory('../frontend', 'login.html')
 
 @app.route("/me")
 @login_required
