@@ -207,7 +207,7 @@ A session is a group of players meeting for a number of games.
 - The importance of planning all components early to maintain consistency.
 - How to collaborate efficiently with AI (Copilot) — more difficult than expected.
 - How to use Visual Studio Code effectively and the necessity of good backup procedures (a painful but valuable lesson).
-- The app has been developpen on my Windows VS Code, many adaptations were required to run it on CS50 IDE, e.g. fixed static routing, case-sensitive paths and environment differences.
+- The app has been developped on Windows VS Code. Adaptations were required to run it on CS50 IDE, e.g. fixed static routing, case-sensitive paths and environment differences.
 - How to design a database schema that supports future expansion.
 - How to build a responsive UI for both mobile and PC contexts.
 - And many more!
