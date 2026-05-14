@@ -77,13 +77,13 @@ async function checkSession() {
 
         // If backend says "not authenticated", redirect to login
         if (res.error) {
-            window.location.href = "Login.html";
+            window.location.href = "login.html";
         }
 
     } catch (err) {
         // Any error → redirect to login
         console.error("Session check failed:", err);
-        window.location.href = "Login.html";
+        window.location.href = "login.html";
     }
 }
 
