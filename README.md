@@ -6,13 +6,13 @@
 
 ## 1. Project Overview
 
-BowlerTrend is a web application designed to track long term bowling performance using simple data entry and clear visualizations. Its goal is to help bowlers understand their evolution over time and detect meaningful changes in performance by applying Statistical Process Control (SPC) tools.  
+BowlerTrend is a web application designed to track long term bowling performance using simple data entry and clear visualizations. Its goal is to help bowlers understand their evolution over time and detect meaningful changes in performance by applying Statistical Process Control (SPC) tools.
 
 The app is intentionally lightweight: a Flask backend, a SQLite database, and a JavaScript driven frontend. It is optimized for mobile use because bowling data is usually entered directly at the alley.
 
 ### Motivation
 
-Bowling is difficult to master, both physically and mentally. Individual scores vary greatly, and without historical perspective, a bowler may become discouraged, thinking their abilities are declining — or, on the contrary, become overly optimistic after a few good game.  
+Bowling is difficult to master, both physically and mentally. Individual scores vary greatly, and without historical perspective, a bowler may become discouraged, thinking their abilities are declining — or, on the contrary, become overly optimistic after a few good game.
 
 BowlerTrend uses statistical process control (SPC) tools to evaluate the long term evolution of a bowler’s scores from different time perspectives. It provides a structured way to record every game in a simple, mobile friendly workflow suitable for real world use, while automatically generating statistics and history.
 
@@ -47,63 +47,63 @@ The goal was to create a practical, elegant, and complete application suitable f
 
 ### Tables schema
 
-CREATE TABLE Games (  
-game_id INTEGER PRIMARY KEY AUTOINCREMENT,  
-session_id INTEGER,  
-score INTEGER NOT NULL,  
-lieu TEXT,  player_id INTEGER,  
-category TEXT,  
-boule TEXT,  
-FREE TEXT,  
-boule_id INTEGER REFERENCES Boules(boule_id),  
-lieu_id INTEGER REFERENCES Lieux(lieu_id),  
-date TEXT,  
-game_number INTEGER,  
-FOREIGN KEY (session_id) REFERENCES Sessions(session_id)  
+CREATE TABLE Games (
+game_id INTEGER PRIMARY KEY AUTOINCREMENT,
+session_id INTEGER,
+score INTEGER NOT NULL,
+lieu TEXT,  player_id INTEGER,
+category TEXT,
+boule TEXT,
+FREE TEXT,
+boule_id INTEGER REFERENCES Boules(boule_id),
+lieu_id INTEGER REFERENCES Lieux(lieu_id),
+date TEXT,
+game_number INTEGER,
+FOREIGN KEY (session_id) REFERENCES Sessions(session_id)
 );
 
-CREATE TABLE Players (  
-player_id INTEGER PRIMARY KEY AUTOINCREMENT,  
-player_name TEXT NOT NULL,  
-password_hash TEXT,  
-email TEXT,  
-active INTEGER DEFAULT 1, is_admin INTEGER DEFAULT 0  
+CREATE TABLE Players (
+player_id INTEGER PRIMARY KEY AUTOINCREMENT,
+player_name TEXT NOT NULL,
+password_hash TEXT,
+email TEXT,
+active INTEGER DEFAULT 1, is_admin INTEGER DEFAULT 0
 );
 
-CREATE TABLE Teams (  
-team_id INTEGER PRIMARY KEY AUTOINCREMENT,  
-team_name TEXT NOT NULL,  
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP  
+CREATE TABLE Teams (
+team_id INTEGER PRIMARY KEY AUTOINCREMENT,
+team_name TEXT NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE TeamMembers (  
-team_id INTEGER NOT NULL,  
-player_id INTEGER NOT NULL,  
-role TEXT DEFAULT 'member',  
-PRIMARY KEY (team_id, player_id),  
-FOREIGN KEY (team_id) REFERENCES Teams(team_id),  
-FOREIGN KEY (player_id) REFERENCES Players(player_id)  
+CREATE TABLE TeamMembers (
+team_id INTEGER NOT NULL,
+player_id INTEGER NOT NULL,
+role TEXT DEFAULT 'member',
+PRIMARY KEY (team_id, player_id),
+FOREIGN KEY (team_id) REFERENCES Teams(team_id),
+FOREIGN KEY (player_id) REFERENCES Players(player_id)
 );
 
-CREATE TABLE Lieux (  
-lieu_id INTEGER PRIMARY KEY AUTOINCREMENT,  
-lieu_name TEXT NOT NULL UNIQUE,  
-active INTEGER DEFAULT 1  
+CREATE TABLE Lieux (
+lieu_id INTEGER PRIMARY KEY AUTOINCREMENT,
+lieu_name TEXT NOT NULL UNIQUE,
+active INTEGER DEFAULT 1
 );
 
-CREATE TABLE Boules (  
-boule_id INTEGER PRIMARY KEY AUTOINCREMENT,  
-boule_name TEXT NOT NULL,  
-player_id INTEGER NOT NULL,  
-active INTEGER NOT NULL DEFAULT 1,  
-FOREIGN KEY (player_id) REFERENCES Players(player_id)  
-);  
+CREATE TABLE Boules (
+boule_id INTEGER PRIMARY KEY AUTOINCREMENT,
+boule_name TEXT NOT NULL,
+player_id INTEGER NOT NULL,
+active INTEGER NOT NULL DEFAULT 1,
+FOREIGN KEY (player_id) REFERENCES Players(player_id)
+);
 
 **This schema is intentionally flexible to allow future expansion (e.g., SPC metrics, team statistics, equipment tracking).**
 
 ## 4. Core Features of the web pages
 
-**New Session**  
+**New Session**
 A session is a group of players meeting for a number of games.
 
 - Create a new session with a date, a team of players, the number of games to be played, and optionally balls to be used.
@@ -111,30 +111,30 @@ A session is a group of players meeting for a number of games.
 - Automatically number games.
 - Validate scores before automatic saving.
 
-**Game History**  
+**Game History**
 
 - Display the score history for the logged in player
 - Filters by location, ball, or date
-- Provide quick access to edit or delete entries.  
+- Provide quick access to edit or delete entries.
 
-**Teams, Balls and Places**  
+**Teams, Balls and Places**
 
 - Simple Create-Delete-Update-Delete interfaces.
 - Used to populate dropdowns throughout the app.
 - Add, edit, and delete players
 - Assigning balls to players (bowlers often use balls with different characteristics)
 - Manage locations (bowling centers)
-- Consistent UI across all pages  
+- Consistent UI across all pages
 
-**Statistics**  
+**Statistics**
 
 - Displays numeric and graphic results over configurable time period and filters.
 - Moving average, standard deviation, score trend analysis.
 - SPC control chart with ±3σ limits.
 - Distribution of scores bar chart.
-- Charts generated with Chart.js  
+- Charts generated with Chart.js
 
-**Authentication**  
+**Authentication**
 
 - Login system to access data
 - Admin privileges to manage user’s information
@@ -145,38 +145,38 @@ A session is a group of players meeting for a number of games.
 
 ## 5. File Structure
 
-### /backend  
+### /backend
 
-  app.py  
-  Bowler.db  
+  app.py
+  Bowler.db
   templates/nav.html
 
 ### /frontend css/style.css
 
-  libs/Chart.js  
-  Admin.html  
-  boules.html  
-  CreateTeam.html  
-  history.html  
-  index.html  
-  lieux.html  
-  login.html  
-  register.html  
-  sessions.html  
-  stats.html  
-  teams.html  
-  js/Admin.js  
-  js/app.js  
-  js/boules.js  
-  js/CreateTeam.js  
-  js/history.js  
-  js/lieux.js  
-  js/login.js  
-  js/logout.js  
-  js/register.js  
-  js/sessions.js  
-  js/stats.js  
-  js/teams.js  
+  libs/Chart.js
+  Admin.html
+  boules.html
+  CreateTeam.html
+  history.html
+  index.html
+  lieux.html
+  login.html
+  register.html
+  sessions.html
+  stats.html
+  teams.html
+  js/admin.js
+  js/app.js
+  js/boules.js
+  js/CreateTeam.js
+  js/history.js
+  js/lieux.js
+  js/login.js
+  js/logout.js
+  js/register.js
+  js/sessions.js
+  js/stats.js
+  js/teams.js
 
 ## 6. Design Decisions
 
@@ -214,7 +214,7 @@ A session is a group of players meeting for a number of games.
 
 ## 10. Credits
 
-BowlerTrend was designed and implemented by myself, based on my beginner level bowling experience.  
+BowlerTrend was designed and implemented by myself, based on my beginner level bowling experience.
 
 **Microsoft Copilot** was used throughout the project as a programming assistant for:
 
@@ -222,9 +222,9 @@ BowlerTrend was designed and implemented by myself, based on my beginner level b
 - code review
 - architectural guidance
 - UI/UX refinement
-- documentation support  
+- documentation support
 
-All design decisions, code structure, and implementation choices were made by the author.  
+All design decisions, code structure, and implementation choices were made by the author.
 
 Frameworks and libraries used:
 
