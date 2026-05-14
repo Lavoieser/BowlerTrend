@@ -154,7 +154,7 @@ A session is a group of players meeting for a number of games.
 ### /frontend css/style.css
 
   libs/Chart.js
-  Admin.html
+  admin.html
   boules.html
   CreateTeam.html
   history.html
