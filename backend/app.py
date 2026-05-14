@@ -54,8 +54,7 @@ app = Flask(__name__, static_folder='../frontend', static_url_path='')
 
 @app.route("/")
 def index():
-    return app.send_static_file("indexAdapted for CS50 IDE (Linux):
-fixed static routing, case‑sensitive paths, and environment differences.")
+    return app.send_static_file("index.html")
 
 app.secret_key = 'clédesChamps_1000'
 
