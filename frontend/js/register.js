@@ -37,7 +37,7 @@ registerBtn.addEventListener("click", async () => {
 
         if (res.success) {
             showMessage("Registration successful! Redirecting...", "success");
-            setTimeout(() => window.location.href = "Login.html", 1500);
+            setTimeout(() => window.location.href = "login.html", 1500);
         } else {
             showMessage(res.error || "Registration failed.", "error");
         }
