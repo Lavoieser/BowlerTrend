@@ -49,14 +49,14 @@ async function apiPost(url, data) {
 
 // Pages that require authentication
 const protectedPages = [
-    "Index.html",
-    "Sessions.html",
-    "History.html",
-    "Admin.html",
-    "Teams.html",
-    "Boules.html",
-    "Lieux.html",
-    "Stats.html"
+    "index.html",
+    "sessions.html",
+    "history.html",
+    "admin.html",
+    "teams.html",
+    "boules.html",
+    "lieux.html",
+    "stats.html"
 ];
 
 // Determine current page
