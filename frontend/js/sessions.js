@@ -1,5 +1,5 @@
 // ======================================================
-// Sessions.js — Dynamic session creation and score entry
+// sessions.js — Dynamic session creation and score entry
 // ======================================================
 
 // DOM references
